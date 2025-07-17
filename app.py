@@ -70,6 +70,12 @@ with tab1:
             "Parental Support": ["YES" if parental_support_binary == "YES" else "NO"],
             "Extra Paid Class": ["YES" if extra_class_binary == "YES" else "NO"]
         })
+        
+        # Align columns to what model was trained with
+        expected_features = model.feature_names_in_
+        input_df = input_df[expected_features]
+
+
 
         # Predict
         prediction = model.predict(input_df)[0]
