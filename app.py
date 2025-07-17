@@ -74,6 +74,9 @@ with tab1:
         # Align columns to what model was trained with
         expected_features = model.feature_names_in_
         input_df = input_df[expected_features]
+        # 💡 Debug: Check if columns match what model expects
+st.write("✅ Model expects these features:", list(expected_features))
+st.write("🧾 You provided these features:", list(input_df.columns))
 
 
 
@@ -107,6 +110,13 @@ with tab2:
     st.dataframe(sample_data)
 
     uploaded_file = st.file_uploader("Upload CSV", type=["csv"])
+            # Align columns to what model was trained with
+            expected_features = model.feature_names_in_
+            input_df = input_df[expected_features]
+            # 💡 Debug: Check if columns match what model expects
+st.write("✅ Model expects these features:", list(expected_features))
+st.write("🧾 You provided these features:", list(input_df.columns))
+
 
     if uploaded_file:
         df = pd.read_csv(uploaded_file)
