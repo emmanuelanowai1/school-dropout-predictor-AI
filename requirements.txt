@@ -1,0 +1,8 @@
+streamlit
+pandas
+scikit-learn
+joblib
+plotly
+fpdf
+openpyxl
+google-generativeai
