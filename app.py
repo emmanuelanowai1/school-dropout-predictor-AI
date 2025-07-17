@@ -70,7 +70,6 @@ with tab1:
             "Parental Support": ["YES" if parental_support_binary == "YES" else "NO"],
             "Extra Paid Class": ["YES" if extra_class_binary == "YES" else "NO"]
         })
-        input_df = input_df.astype(float)
 
         # Predict
         prediction = model.predict(input_df)[0]
