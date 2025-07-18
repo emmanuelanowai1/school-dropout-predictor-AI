@@ -4,10 +4,10 @@ import streamlit as st
 # ✅ Configure Gemini API key from Streamlit secrets
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
-# ✅ Use a lighter model to reduce quota issues
-model_gemini = genai.GenerativeModel("models/gemini-pro")  # Avoid gemini-1.5-pro if hitting quota
+# ✅ Use correct model name — no 'models/' prefix
+model_gemini = genai.GenerativeModel("gemini-pro")  # or "gemini-1.5-pro" if you have quota
 
-# ✅ Cache Gemini responses (avoid repeated requests on same input)
+# ✅ Cache Gemini responses
 @st.cache_data(show_spinner=False)
 def generate_gemini_response(student_data, student_id=None):
     id_str = f" for Student ID {student_id}" if student_id else ""
