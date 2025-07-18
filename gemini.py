@@ -6,7 +6,8 @@ genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
 # Load Gemini model
 #model_gemini = genai.GenerativeModel("gemini-pro")
-model_gemini = genai.GenerativeModel("models/gemini-pro")
+#model_gemini = genai.GenerativeModel("models/gemini-pro")
+model_gemini = genai.GenerativeModel("models/gemini-1.5-pro")
 
 
 def generate_gemini_response(student_data, student_id=None):
