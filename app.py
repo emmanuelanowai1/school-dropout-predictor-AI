@@ -139,4 +139,4 @@ with tab2:
 
 # ======= FOOTER LINKS =======
 st.markdown("---")
-st.markdown("💡 [Calculate CGPA Online](https://www.schooltry.com.ng/2023/10/how-to-calculate-your-cgpa-in.html)")
+st.markdown("💡 [Calculate CGPA Online](https://cgpacalculator.com.ng/)")
