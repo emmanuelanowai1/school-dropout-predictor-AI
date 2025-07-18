@@ -5,7 +5,9 @@ import streamlit as st
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
 # Load Gemini model
-model_gemini = genai.GenerativeModel("gemini-pro")
+#model_gemini = genai.GenerativeModel("gemini-pro")
+model_gemini = genai.GenerativeModel("models/gemini-pro")
+
 
 def generate_gemini_response(student_data, student_id=None):
     id_str = f" for Student ID {student_id}" if student_id else ""
