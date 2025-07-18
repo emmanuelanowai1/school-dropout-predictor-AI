@@ -1,15 +1,14 @@
 import google.generativeai as genai
 import streamlit as st
 
-# Configure API key
+# ✅ Configure Gemini API key from Streamlit secrets
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
-# Load Gemini model
-#model_gemini = genai.GenerativeModel("gemini-pro")
-#model_gemini = genai.GenerativeModel("models/gemini-pro")
-model_gemini = genai.GenerativeModel("models/gemini-1.5-pro")
+# ✅ Use a lighter model to reduce quota issues
+model_gemini = genai.GenerativeModel("models/gemini-pro")  # Avoid gemini-1.5-pro if hitting quota
 
-
+# ✅ Cache Gemini responses (avoid repeated requests on same input)
+@st.cache_data(show_spinner=False)
 def generate_gemini_response(student_data, student_id=None):
     id_str = f" for Student ID {student_id}" if student_id else ""
 
@@ -28,10 +27,9 @@ Student Info:
 
 Respond with 3-5 sentences. Be encouraging and practical.
 """
+
     try:
         response = model_gemini.generate_content(prompt)
-        #return response.text
-        return response.text if hasattr(response, 'text') else str(response)
-        
+        return response.text.strip()
     except Exception as e:
         return f"⚠️ Gemini API error: {e}"
