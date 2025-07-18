@@ -30,6 +30,8 @@ Respond with 3-5 sentences. Be encouraging and practical.
 """
     try:
         response = model_gemini.generate_content(prompt)
-        return response.text
+        #return response.text
+        return response.text if hasattr(response, 'text') else str(response)
+        
     except Exception as e:
         return f"⚠️ Gemini API error: {e}"
